@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Books, { loaderBooks } from "../pages/books";
-import { BookItem } from "../pages/books/BookItem";
+import { BookItem, loader as LoaderBookItem } from "../pages/books/BookItem";
 import { Checkout } from "../pages/checkout";
 import { Login } from "../pages/login";
 import { NotFound } from "../pages/NotFound";
@@ -21,6 +21,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/books/:bookId",
+    loader: LoaderBookItem,
     element: <BookItem />,
     errorElement: <NotFound />,
   },
