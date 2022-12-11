@@ -1,41 +1,42 @@
-import { createBrowserRouter } from "react-router-dom";
-import Books from "../pages/books";
-import { BookItem } from "../pages/books/BookItem";
-import { Checkout } from "../pages/checkout";
-import { Login } from "../pages/login";
-import { NotFound } from "../pages/NotFound";
-import { Users } from "../pages/users";
-import { CartUser } from "../pages/users/CartUser";
+import { createBrowserRouter } from 'react-router-dom'
+import Books from '../pages/books'
+import { BookItem, loader as LoaderBookItem } from '../pages/books/BookItem'
+import { Checkout } from '../pages/checkout'
+import { Login } from '../pages/login'
+import { NotFound } from '../pages/NotFound'
+import { Users } from '../pages/users'
+import { CartUser } from '../pages/users/CartUser'
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Login />,
-    errorElement: <NotFound />,
+    errorElement: <NotFound />
   },
   {
-    path: "/books",
+    path: '/books',
     element: <Books />,
-    errorElement: <NotFound />,
+    errorElement: <NotFound />
   },
   {
-    path: "/books/:bookId",
+    path: '/books/:bookId',
+    loader: LoaderBookItem,
     element: <BookItem />,
-    errorElement: <NotFound />,
+    errorElement: <NotFound />
   },
   {
-    path: "/users",
+    path: '/users',
     element: <Users />,
-    errorElement: <NotFound />,
+    errorElement: <NotFound />
   },
   {
-    path: "/users/:userId/cart",
+    path: '/users/:userId/cart',
     element: <CartUser />,
-    errorElement: <NotFound />,
+    errorElement: <NotFound />
   },
   {
-    path: "/checkout/:userId",
+    path: '/checkout/:userId',
     element: <Checkout />,
-    errorElement: <NotFound />,
-  },
-]);
+    errorElement: <NotFound />
+  }
+])
